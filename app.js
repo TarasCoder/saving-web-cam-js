@@ -29,5 +29,15 @@ document.getElementById("stopBtn").addEventListener("click", () => {
   a.style = "display: none;";
   a.href = url;
   a.download = "video_from_web_cam.webm";
-  a.click();
+  // Saving to local mashine
+  // a.click();
+
+  // Converting Blob to Base64
+  let reader = new FileReader();
+  reader.readAsDataURL(blob);
+  reader.onloadend = function () {
+    var base64data = reader.result;
+    console.log(base64data);
+  };
+
 });
